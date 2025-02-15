@@ -13,6 +13,7 @@ return [
     'handler' => [
         'http' => [
             Hyperf\HttpServer\Exception\Handler\HttpExceptionHandler::class,
+            // バリデーションエラーをjson形式のレスポンスで返したいので独自の例外ハンドラを追加している
             App\Exception\Handler\AppValidationExceptionHandler::class,
             App\Exception\Handler\AppExceptionHandler::class,
         ],

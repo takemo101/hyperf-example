@@ -32,11 +32,11 @@ class UserController
     }
 
     /**
-     * @param CreateUserRequest $request
+     * @param RequestInterface $request
      * @return User
      */
     // #[RequestMapping(path: "/user", methods: ["post"])]
-    public function create(CreateUserRequest $request): User
+    public function create(RequestInterface $request): User
     {
         $user = new User();
 
