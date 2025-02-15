@@ -119,4 +119,19 @@ class UserController
 
         return $user;
     }
+
+    /**
+     * @param string $id
+     * @return User
+     * @throws ModelNotFoundException
+     */
+    #[RequestMapping(path: "/user/{id}", methods: ["delete"])]
+    public function destroy(string $id): User
+    {
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return $user;
+    }
 }
