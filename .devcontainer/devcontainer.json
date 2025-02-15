@@ -1,0 +1,12 @@
+{
+  "build": {
+    "context": "..",
+    "dockerfile": "./Dockerfile"
+  },
+  "forwardPorts": [
+    9501
+  ],
+  "runArgs": [
+    "--platform=linux/amd64"
+  ]
+}

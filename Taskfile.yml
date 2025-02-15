@@ -1,0 +1,24 @@
+version: '3'
+
+vars:
+  PINT_BIN: ./vendor/bin/pint
+  PEST_BIN: ./vendor/bin/pest
+  PHPSTAN_BIN: ./vendor/bin/phpstan
+
+tasks:
+  # ex: task composer -- install
+  composer:
+    cmds:
+      - docker-compose run --rm composer {{default "--version" .CLI_ARGS}}
+
+  start:
+    cmds:
+      - docker-compose up -d hyperf-app
+
+  shell:
+    cmds:
+      - docker-compose exec hyperf-app bash
+
+  stop:
+    cmds:
+      - docker-compose stop hyperf-app
