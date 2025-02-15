@@ -48,6 +48,7 @@ class UserController
     }
 
     /**
+     * @param CreateUserService $service
      * @param CreateUserRequest $request
      * @return User
      */
