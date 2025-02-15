@@ -107,4 +107,23 @@ class UserTest extends TestCase
             ->assertStatus(200)
             ->assertJson($user->toArray());
     }
+
+    #[Test]
+    public function User削除()
+    {
+        $user = User::create(
+            [
+                'name' => 'delete',
+                'email' => 'delete@test.com',
+            ],
+        );
+
+        $this->delete("/user/{$user->id}")
+            ->assertStatus(200)
+            ->assertJson($user->toArray());
+
+        $deletedUser = User::find($user->id);
+
+        $this->assertNull($deletedUser);
+    }
 }
